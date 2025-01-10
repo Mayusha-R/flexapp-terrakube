@@ -8,12 +8,6 @@ terraform {
       source = "azure/azapi"
     }
   }
-  backend "s3" {
-    bucket = "terrakubebackend"
-    key    = "terraform.tfstate"
-    region = "eu-north-1"
-  }
-
 }
 
 provider "azurerm" {

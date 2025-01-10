@@ -5,6 +5,21 @@ variable "location" {
 variable "rg_name" {
   type = string
 }
+variable "resource_owner" {
+  type = string
+}
+variable "business_unit" {
+  type = string
+}
+variable "project_name" {
+  type = string
+}
+variable "delivery_manager" {
+  type = string
+}
+variable "create_date" {
+  type = string
+}
 
 # Storage
 variable "storageAccount_name" {

@@ -1,7 +1,12 @@
-location = "southeastasia"
-rg_name  = "sa1_test_eic_MayushaRathod"
+location         = "southeastasia"
+rg_name          = ""
+resource_owner   = ""
+delivery_manager = ""
+business_unit    = ""
+project_name     = ""
+create_date      = ""
 
-storageAccount_name             = "sa1testeicmayusharaaa8d"
+storageAccount_name             = "flexstoragetest00"
 storageAccount_tier             = "Standard"
 storageAccount_replication_type = "LRS"
 

@@ -17,7 +17,7 @@ resource "azurerm_application_insights" "test-flex-ai" {
 }
 resource "azurerm_storage_container" "main_container" {
   name                  = "app-pakage-flexconsumption"
-  storage_account_name = var.storage_account_name
+  storage_account_name  = var.storage_account_name
   container_access_type = "private"
 }
 
@@ -51,76 +51,8 @@ resource "azapi_resource" "function1" {
           {
             "name" : "AzureWebJobsStorage",
             "value" : "${var.storage_account_connection_string}"
-          },
-          {
-            "name" : "APPINSIGHTS_PROFILERFEATURE_VERSION",
-            "value" : "1.0.0"
-          },
-          {
-            "name" : "ApplicationInsightsAgent_EXTENSION_VERSION",
-            "value" : "~2"
-          },
-          {
-            "name" : "DiagnosticServices_EXTENSION_VERSION",
-            "value" : "~3"
-          },
-          {
-            "name" : "FUNCTIONS_INPROC_NET8_ENABLED",
-            "value" : "1"
-          },
-          {
-            "name" : "custom",
-            "value" : "${var.service_plan_id}"
           }
         ],
-        ipSecurityRestrictions = [
-          {
-            "ipAddress" : "182.76.141.104/29",
-            "action" : "Allow",
-            "tag" : "Default",
-            "priority" : 100,
-            "name" : "rule1"
-          },
-          {
-            "ipAddress" : "115.112.142.32/29",
-            "action" : "Allow",
-            "tag" : "Default",
-            "priority" : 101,
-            "name" : "rule2"
-          },
-          {
-            "ipAddress" : "14.97.73.248/29",
-            "action" : "Allow",
-            "tag" : "Default",
-            "priority" : 103,
-            "name" : "rule3"
-          }
-        ],
-        scmIpSecurityRestrictions = [
-          {
-            "ipAddress" : "182.76.141.104/29",
-            "action" : "Allow",
-            "tag" : "Default",
-            "priority" : 100,
-            "name" : "rule1"
-          },
-          {
-            "ipAddress" : "115.112.142.32/29",
-            "action" : "Allow",
-            "tag" : "Default",
-            "priority" : 101,
-            "name" : "rule2"
-          },
-          {
-            "ipAddress" : "14.97.73.248/29",
-            "action" : "Allow",
-            "tag" : "Default",
-            "priority" : 103,
-            "name" : "rule3"
-          }
-        ],
-        ipSecurityRestrictionsDefaultAction    = "Deny"
-        scmIpSecurityRestrictionsDefaultAction = "Deny"
       }
       functionAppConfig = {
         deployment = {
@@ -144,7 +76,6 @@ resource "azapi_resource" "function1" {
       }
       publicNetworkAccess                    = "Enabled"
       keyVaultReferenceIdentity = "${azurerm_user_assigned_identity.user-identity.id}"
-      virtualNetworkSubnetId                 = "${azurerm_subnet.function-subnet.id}"
     }
   }
 }
